@@ -1,0 +1,17 @@
+import re
+
+
+class Solution:
+    def isPalindrome( self,s: str) -> bool:
+        
+        removedCapital = s.lower()
+        removedSpaces = re.sub(r'[^a-zA-Z0-9]','',removedCapital)
+        startPointer = 0
+        endPointer = len(removedSpaces)-1
+        
+        while (startPointer < endPointer):
+            if(removedSpaces[startPointer]!=removedSpaces[endPointer]):
+                return False
+            startPointer+=1
+            endPointer-=1
+        return True
